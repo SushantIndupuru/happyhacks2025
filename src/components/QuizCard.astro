@@ -1,272 +1,288 @@
 ---
 interface Option {
-  id: string;
-  text: string;
+    id: string;
+    text: string;
 }
 
 interface Question {
-  id: string;
-  text: string;
-  options: Option[];
+    id: string;
+    text: string;
+    options: Option[];
 }
 
 interface Props {
-  title: string;
-  description: string;
-  questions: Question[];
-  buttonText?: string;
+    title: string;
+    description: string;
+    questions: Question[];
+    buttonText?: string;
 }
 
-const { 
-  title, 
-  description, 
-  questions,
-  buttonText = "Take Quiz" 
+const {
+    title, description, questions, buttonText = "Take Quiz"
 } = Astro.props;
 
 const quizId = crypto.randomUUID();
 ---
 
 <div class="bg-white rounded-xl shadow-md p-6 animate-on-scroll">
-  <h3 class="text-xl font-semibold mb-2 text-neutral-800">{title}</h3>
-  <p class="text-neutral-600 mb-6">{description}</p>
-  
-  <div class="mb-6">
-    <div class="grid grid-cols-4 gap-2">
-      {Array(questions.length).fill(0).map((_, i) => (
-        <div class="h-1.5 rounded-full bg-neutral-200 overflow-hidden">
-          <div 
-            class="quiz-progress-bar h-full bg-primary-500 w-0 transition-all duration-300" 
-            data-quiz={quizId} 
-            data-step={i}
-          ></div>
+    <h3 class="text-xl font-semibold mb-2 text-neutral-800">{title}</h3>
+    <p class="text-neutral-600 mb-6">{description}</p>
+
+    <div class="mb-6">
+        <div class="grid grid-cols-4 gap-2">
+            {Array(questions.length).fill(0).map((_, i) => (
+                    <div class="h-1.5 rounded-full bg-neutral-200 overflow-hidden">
+                        <div
+                                class="quiz-progress-bar h-full  bg-primary-500 w-0 transition-all duration-300"
+                                data-quiz={quizId}
+                                data-step={i}
+                        ></div>
+                    </div>))}
         </div>
-      ))}
     </div>
-  </div>
-  
-  <div class="quiz-container" data-quiz={quizId}>
-    {questions.map((question, index) => (
-      <div 
-        class={`quiz-question ${index === 0 ? 'block' : 'hidden'}`} 
-        data-quiz={quizId} 
-        data-question={question.id}
-        data-index={index}
-      >
-        <h4 class="font-medium text-lg mb-4 text-neutral-800">{question.text}</h4>
-        
-        <div class="space-y-3">
-          {question.options.map(option => (
-            <div 
-              class="quiz-option cursor-pointer p-3 border border-neutral-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors"
-              data-quiz={quizId} 
-              data-question={question.id}
-              data-option={option.id}
-            >
-              <div class="flex items-center">
-                <div class="w-5 h-5 rounded-full border-2 border-neutral-300 mr-3 flex-shrink-0 quiz-option-marker"></div>
-                <span>{option.text}</span>
-              </div>
+
+    <div class="quiz-container" data-quiz={quizId}>
+        {questions.map((question, index) => (
+                <div
+                        class={`quiz-question ${index === 0 ? 'block' : 'hidden'}`}
+                        data-quiz={quizId}
+                        data-question={question.id}
+                        data-index={index}
+                >
+                    <h4 class="font-medium text-lg mb-4 text-neutral-800">{question.text}</h4>
+
+                    <div class="space-y-3">
+                        {question.options.map(option => (
+                                <div
+                                        class="quiz-option cursor-pointer p-3 border border-neutral-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors"
+                                        data-quiz={quizId}
+                                        data-question={question.id}
+                                        data-option={option.id}
+                                >
+                                    <div class="flex items-center">
+                                        <div class="w-5 h-5 rounded-full border-2 border-neutral-300 mr-3 flex-shrink-0 quiz-option-marker"></div>
+                                        <span>{option.text}</span>
+                                    </div>
+                                </div>))}
+                    </div>
+
+                    <div class="mt-6 flex justify-between">
+                        {index > 0 && (
+                                <button
+                                        class="quiz-prev px-4 py-2 text-neutral-600 hover:text-neutral-800 transition-colors"
+                                        data-quiz={quizId}
+                                >
+                                    Back
+                                </button>)}
+
+                        {index < questions.length - 1 ? (
+                                <button
+                                        class="quiz-next ml-auto px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                        data-quiz={quizId}
+                                        disabled
+                                >
+                                    Next
+                                </button>) : (
+                                <button
+                                        class="quiz-submit ml-auto px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                        data-quiz={quizId}
+                                        disabled
+                                >
+                                    Submit
+                                </button>)}
+                    </div>
+                </div>))}
+
+        <div class="quiz-result hidden" data-quiz={quizId}>
+            <div class="text-center py-4">
+                <div class="w-16 h-16 rounded-full bg-primary-100 mx-auto flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Quiz Complete</h3>
+                <p class="text-neutral-600 mb-6">Thank you for taking the time to complete this self-assessment.
+                    Remember, this is not a professional diagnosis, but it can help you understand your feelings
+                    better.</p>
+                <div class="quiz-result-message p-4 rounded-lg bg-neutral-100"></div>
+                <div class="mt-6">
+                    <a href="/resources"
+                       class="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                        See Resources
+                    </a>
+                </div>
             </div>
-          ))}
         </div>
-        
-        <div class="mt-6 flex justify-between">
-          {index > 0 && (
-            <button 
-              class="quiz-prev px-4 py-2 text-neutral-600 hover:text-neutral-800 transition-colors"
-              data-quiz={quizId}
-            >
-              Back
-            </button>
-          )}
-          
-          {index < questions.length - 1 ? (
-            <button 
-              class="quiz-next ml-auto px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              data-quiz={quizId}
-              disabled
-            >
-              Next
-            </button>
-          ) : (
-            <button 
-              class="quiz-submit ml-auto px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              data-quiz={quizId}
-              disabled
-            >
-              Submit
-            </button>
-          )}
-        </div>
-      </div>
-    ))}
-    
-    <div class="quiz-result hidden" data-quiz={quizId}>
-      <div class="text-center py-4">
-        <div class="w-16 h-16 rounded-full bg-primary-100 mx-auto flex items-center justify-center mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Quiz Complete</h3>
-        <p class="text-neutral-600 mb-6">Thank you for taking the time to complete this self-assessment. Remember, this is not a professional diagnosis, but it can help you understand your feelings better.</p>
-        <div class="quiz-result-message p-4 rounded-lg bg-neutral-100"></div>
-        <div class="mt-6">
-          <a href="/resources" class="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-            See Resources
-          </a>
-        </div>
-      </div>
     </div>
-  </div>
-  
-  <div class="quiz-start text-center py-4" data-quiz={quizId}>
-    <p class="text-sm text-neutral-500 mb-6">This self-assessment can help you understand your feelings better, but it's not a professional diagnosis.</p>
-    <button 
-      class="quiz-start-button px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
-      data-quiz={quizId}
-    >
-      {buttonText}
-    </button>
-  </div>
+
+    <div class="quiz-start text-center py-4" data-quiz={quizId}>
+        <p class="text-sm text-neutral-500 mb-6">This self-assessment can help you understand your feelings better, but
+            it's not a professional diagnosis.</p>
+        <button
+                class="quiz-start-button px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+                data-quiz={quizId}
+        >
+            {buttonText}
+        </button>
+    </div>
 </div>
 
-<script define:vars={{ quizId }}>
-  document.addEventListener('DOMContentLoaded', () => {
-    const quizContainer = document.querySelector(`.quiz-container[data-quiz="${quizId}"]`);
-    const quizStart = document.querySelector(`.quiz-start[data-quiz="${quizId}"]`);
-    const startButton = document.querySelector(`.quiz-start-button[data-quiz="${quizId}"]`);
-    const questions = document.querySelectorAll(`.quiz-question[data-quiz="${quizId}"]`);
-    const progressBars = document.querySelectorAll(`.quiz-progress-bar[data-quiz="${quizId}"]`);
-    const resultDiv = document.querySelector(`.quiz-result[data-quiz="${quizId}"]`);
-    
-    // Hide quiz questions initially
-    quizContainer.style.display = 'none';
-    
-    // Start quiz
-    startButton.addEventListener('click', () => {
-      quizStart.style.display = 'none';
-      quizContainer.style.display = 'block';
-      updateProgressBar(0);
-    });
-    
-    // Handle option selection
-    const options = document.querySelectorAll(`.quiz-option[data-quiz="${quizId}"]`);
-    options.forEach(option => {
-      option.addEventListener('click', () => {
-        const questionId = option.dataset.question;
-        
-        // Deselect all options in this question
-        document.querySelectorAll(`.quiz-option[data-quiz="${quizId}"][data-question="${questionId}"]`).forEach(opt => {
-          opt.classList.remove('border-primary-500', 'bg-primary-100');
-          opt.querySelector('.quiz-option-marker').classList.remove('border-primary-500', 'bg-primary-500');
+<style>
+    .quiz-option-marker {
+        transition: all 0.2s ease;
+    }
+
+    .quiz-option.border-primary-500 .quiz-option-marker {
+        border-color: theme('colors.primary.500');
+        background-color: theme('colors.primary.500');
+        position: relative;
+    }
+
+    .quiz-option.border-primary-500 .quiz-option-marker::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 8px;
+        background-color: white;
+        border-radius: 50%;
+    }
+</style>
+
+<script define:vars={{quizId}}>
+    var responses = Array();
+    document.addEventListener('DOMContentLoaded', () => {
+        const quizContainer = document.querySelector(`.quiz-container[data-quiz="${quizId}"]`);
+        const quizStart = document.querySelector(`.quiz-start[data-quiz="${quizId}"]`);
+        const startButton = document.querySelector(`.quiz-start-button[data-quiz="${quizId}"]`);
+        const questions = document.querySelectorAll(`.quiz-question[data-quiz="${quizId}"]`);
+        const progressBars = document.querySelectorAll(`.quiz-progress-bar[data-quiz="${quizId}"]`);
+        const resultDiv = document.querySelector(`.quiz-result[data-quiz="${quizId}"]`);
+
+        // Hide quiz questions initially
+        quizContainer.style.display = 'none';
+
+        // Start quiz
+        startButton.addEventListener('click', () => {
+            quizStart.style.display = 'none';
+            quizContainer.style.display = 'block';
+            //updateProgressBar(0);
         });
-        
-        // Select this option
-        option.classList.add('border-primary-500', 'bg-primary-100');
-        option.querySelector('.quiz-option-marker').classList.add('border-primary-500', 'bg-primary-500');
-        
-        // Enable next/submit button
-        const questionEl = option.closest(`.quiz-question[data-quiz="${quizId}"]`);
-        const nextButton = questionEl.querySelector('.quiz-next, .quiz-submit');
-        nextButton.disabled = false;
-      });
-    });
-    
-    // Handle next button
-    const nextButtons = document.querySelectorAll(`.quiz-next[data-quiz="${quizId}"]`);
-    nextButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const currentQuestion = button.closest(`.quiz-question[data-quiz="${quizId}"]`);
-        const currentIndex = parseInt(currentQuestion.dataset.index);
-        const nextIndex = currentIndex + 1;
-        
-        // Hide current question
-        currentQuestion.classList.add('hidden');
-        
-        // Show next question
-        questions[nextIndex].classList.remove('hidden');
-        
-        // Update progress bar
-        updateProgressBar(nextIndex);
-      });
-    });
-    
-    // Handle previous button
-    const prevButtons = document.querySelectorAll(`.quiz-prev[data-quiz="${quizId}"]`);
-    prevButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const currentQuestion = button.closest(`.quiz-question[data-quiz="${quizId}"]`);
-        const currentIndex = parseInt(currentQuestion.dataset.index);
-        const prevIndex = currentIndex - 1;
-        
-        // Hide current question
-        currentQuestion.classList.add('hidden');
-        
-        // Show previous question
-        questions[prevIndex].classList.remove('hidden');
-        
-        // Update progress bar
-        updateProgressBar(prevIndex);
-      });
-    });
-    
-    // Handle submit button
-    const submitButton = document.querySelector(`.quiz-submit[data-quiz="${quizId}"]`);
-    submitButton.addEventListener('click', () => {
-      // Hide all questions
-      questions.forEach(q => q.classList.add('hidden'));
-      
-      // Show result
-      resultDiv.classList.remove('hidden');
-      
-      // Display a generic result message
-      const resultMessage = resultDiv.querySelector('.quiz-result-message');
-      resultMessage.innerHTML = `
+
+        // Handle option selection
+        const options = document.querySelectorAll(`.quiz-option[data-quiz="${quizId}"]`);
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const questionId = option.dataset.question;
+                const qNum = parseInt(questionId.charAt(1));
+                // Deselect all options in this question
+                document.querySelectorAll(`.quiz-option[data-quiz="${quizId}"][data-question="${questionId}"]`).forEach(opt => {
+                    opt.classList.remove('border-primary-500', 'bg-primary-100');
+                    opt.querySelector('.quiz-option-marker').classList.remove('border-primary-500', 'bg-primary-500');
+                });
+                //responses[qNum-1]=0;
+
+                // Select this option
+                option.classList.add('border-primary-500', 'bg-primary-100');
+                option.querySelector('.quiz-option-marker').classList.add('border-primary-500', 'bg-primary-500');
+                const optionId = option.dataset.option;
+                responses[qNum - 1] = optionId.charAt(2).charCodeAt(0) - 97;
+
+                // Enable next/submit button
+                const questionEl = option.closest(`.quiz-question[data-quiz="${quizId}"]`);
+                const nextButton = questionEl.querySelector('.quiz-next, .quiz-submit');
+                nextButton.disabled = false;
+            });
+        });
+
+        // Handle next button
+        const nextButtons = document.querySelectorAll(`.quiz-next[data-quiz="${quizId}"]`);
+        nextButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const currentQuestion = button.closest(`.quiz-question[data-quiz="${quizId}"]`);
+                const currentIndex = parseInt(currentQuestion.dataset.index);
+                const nextIndex = currentIndex + 1;
+
+                // Hide current question
+                currentQuestion.classList.add('hidden');
+
+                // Show next question
+                questions[nextIndex].classList.remove('hidden');
+
+                // Update progress bar
+                updateProgressBar(nextIndex-1);
+            });
+        });
+
+        // Handle previous button
+        const prevButtons = document.querySelectorAll(`.quiz-prev[data-quiz="${quizId}"]`);
+        prevButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const currentQuestion = button.closest(`.quiz-question[data-quiz="${quizId}"]`);
+                const currentIndex = parseInt(currentQuestion.dataset.index);
+                const prevIndex = currentIndex - 1;
+
+                // Hide current question
+                currentQuestion.classList.add('hidden');
+
+                // Show previous question
+                questions[prevIndex].classList.remove('hidden');
+
+                // Update progress bar
+                updateProgressBar(prevIndex-1);
+            });
+        });
+
+        // Handle submit button
+        const submitButton = document.querySelector(`.quiz-submit[data-quiz="${quizId}"]`);
+        submitButton.addEventListener('click', () => {
+            //console.log(responses);
+            // Hide all questions
+            questions.forEach(q => q.classList.add('hidden'));
+
+            // Show result
+            resultDiv.classList.remove('hidden');
+
+            // Display a generic result message
+            const resultMessage = resultDiv.querySelector('.quiz-result-message');
+            let sum = 0;
+
+            for (let i = 0; i < responses.length; i++) {
+                sum += responses[i];
+            }
+            //console.log(sum);
+            if (sum === 0) {
+                resultMessage.innerHTML = `
+        <p class="font-medium">Based on your responses, it doesn't seem like you're expirencing any severe mental health issues.</p>
+        <p class="mt-2">If you're still feeling anxious, feel free to visit our resources to explore further.</p>
+      `;
+            } else{
+            resultMessage.innerHTML = `
         <p class="font-medium">Based on your responses, it might be helpful to talk to someone about your feelings.</p>
         <p class="mt-2">Remember, seeking help is a sign of strength, not weakness. Don't be afraid.</p>
-      `;
-      
-      // Complete progress bar
-      progressBars.forEach(bar => {
-        bar.style.width = '100%';
-      });
-    });
-    
-    // Update progress bar
-    function updateProgressBar(index) {
-      progressBars.forEach((bar, i) => {
-        if (i <= index) {
-          bar.style.width = '100%';
-        } else {
-          bar.style.width = '0';
+      `;}
+
+            // Complete progress bar
+            progressBars.forEach(bar => {
+                bar.style.width = '100%';
+            });
+        });
+
+        // Update progress bar
+        function updateProgressBar(index) {
+            progressBars.forEach((bar, i) => {
+
+                if (i <= index) {
+                    bar.style.width = '100%';
+                } else {
+                    bar.style.width = '0';
+                }
+            });
         }
-      });
-    }
-  });
+    });
 </script>
 
-<style>
-  .quiz-option-marker {
-    transition: all 0.2s ease;
-  }
-  
-  .quiz-option.border-primary-500 .quiz-option-marker {
-    border-color: theme('colors.primary.500');
-    background-color: theme('colors.primary.500');
-    position: relative;
-  }
-  
-  .quiz-option.border-primary-500 .quiz-option-marker::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 8px;
-    height: 8px;
-    background-color: white;
-    border-radius: 50%;
-  }
-</style>
