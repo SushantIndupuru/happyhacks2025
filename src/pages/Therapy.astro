@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import InfoSection from '../components/InfoSection.astro';
+---
+
+<Layout
+        title="Get Help Now | MindSpace"
+        description="Immediate resources and support for teens experiencing mental health crises or needing professional help."
+>
+    <Header slot="header"/>
+
+    <HeroBanner
+            title="Need Support? You're Never Alone."
+            subtitle="Whether you're currently in crisis or just need someone to talk to, help is always available. Your mental health matters."
+            ctaText="Immediate Crisis"
+            ctaLink="#crisis"
+            secondaryCtaText="Resources"
+            secondaryCtaLink="#talk"
+            imageSrc="https://www.healthcareradius.in/cloud/2021/11/15/Mental-Health-1.jpg"
+    />
+    <!-- Finding Professional Help -->
+
+    import InfoSection from "../components/InfoSection.astro";
+    import ResourceCard from "../components/ResourceCard.astro";
+    <InfoSection
+            title="Finding Professional Help"
+            description="When you're struggling with your mental health, professional support can make a big difference. Here's how to find the right help for you."
+            imageSrc="https://images.pexels.com/photos/4098224/pexels-photo-4098224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            imageAlt="Therapist office"
+    >
+        <div class="space-y-4 mt-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">1</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Talk to a Trusted Adult</h3>
+                    <p>Start by talking to a parent, guardian, school counselor, or other trusted adult about what
+                        you're experiencing. They can help you navigate the process of finding professional help.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">2</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Types of Mental Health Professionals</h3>
+                    <p>Different professionals provide different types of care. These include therapists, counselors,
+                        psychologists, and psychiatrists. Each has unique training and approaches to mental health
+                        care.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">3</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Finding the Right Fit</h3>
+                    <p>It's important to find a professional you feel comfortable with. It's okay to meet with a few
+                        different providers before deciding who to work with long-term.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">4</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">What to Expect</h3>
+                    <p>In your first session, the mental health professional will ask questions to understand what
+                        you're experiencing. They'll work with you to develop a treatment plan that might include
+                        regular therapy, coping strategies, and sometimes medication.</p>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <a href="/resources/find-therapist"
+                   class="inline-block px-5 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors shadow-md">
+                    How to Find a Therapist
+                </a>
+            </div>
+        </div>
+    </InfoSection>
+
+    <!-- Self-Help Resources -->
+    <section class="py-16 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Self-Help Resources</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    While not a substitute for professional help when needed, these tools can help you manage your
+                    mental health day-to-day.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <ResourceCard
+                        title="Breathing Exercises"
+                        description="Simple breathing techniques to help manage anxiety and stress in the moment."
+                        link="/resources/breathing-techniques"
+                        tags={["Anxiety", "Stress"]}
+                        image="https://images.pexels.com/photos/3759659/pexels-photo-3759659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <ResourceCard
+                        title="Grounding Techniques"
+                        description="Practical strategies to help you stay present when overwhelmed by difficult emotions."
+                        link="/resources/grounding-techniques"
+                        tags={["Anxiety", "Panic"]}
+                        image="https://images.pexels.com/photos/2258536/pexels-photo-2258536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <ResourceCard
+                        title="Healthy Sleep Habits"
+                        description="Tips for improving your sleep, which can significantly impact your mental health."
+                        link="/resources/sleep-habits"
+                        tags={["Sleep", "Wellbeing"]}
+                        image="https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <ResourceCard
+                        title="Mood Tracking"
+                        description="Learn how tracking your mood can help you identify patterns and triggers."
+                        link="/resources/mood-tracking"
+                        tags={["Self-awareness", "Tool"]}
+                        image="https://images.pexels.com/photos/6287500/pexels-photo-6287500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Support Section -->
+    <InfoSection
+            title="Supporting Someone in Crisis"
+            description="If you're worried about a friend or loved one who might be in crisis, here's how you can help them get the support they need."
+            imageSrc="https://images.pexels.com/photos/7176301/pexels-photo-7176301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            imageAlt="Friends supporting each other"
+            imagePosition="right"
+            bgColor="bg-white"
+    >
+        <div class="space-y-4 mt-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">1</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Take It Seriously</h3>
+                    <p>If someone tells you they're thinking about suicide or self-harm, always take them seriously.
+                        Listen without judgment and let them know you care.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">2</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Don't Keep It a Secret</h3>
+                    <p>While respecting privacy is important, safety comes first. Tell a trusted adult about your
+                        concerns, even if your friend asked you not to.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">3</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Stay With Them</h3>
+                    <p>If possible, don't leave someone alone if they're in crisis. Help them call a crisis line or
+                        reach out to a trusted adult.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">4</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Take Care of Yourself</h3>
+                    <p>Supporting someone in crisis can be emotionally draining. Make sure to talk to someone about your
+                        own feelings and take care of your own mental health too.</p>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <a href="/resources/support-friend"
+                   class="inline-block px-5 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors shadow-md">
+                    Learn More About Supporting Others
+                </a>
+            </div>
+        </div>
+    </InfoSection>
+    ---
