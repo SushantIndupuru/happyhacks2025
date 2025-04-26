@@ -1,0 +1,311 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import InfoSection from '../components/InfoSection.astro';
+---
+
+<Layout
+        title="Get Help Now | MindSpace"
+        description="Immediate resources and support for teens experiencing mental health crises or needing professional help."
+>
+    <Header slot="header" />
+
+    <HeroBanner
+            title="Need Support? You're Not Alone."
+            subtitle="Whether you're in crisis or just need someone to talk to, help is available right now. Your mental health matters."
+            ctaText="Crisis Resources"
+            ctaLink="#crisis"
+            secondaryCtaText="Talk to Someone"
+            secondaryCtaLink="#talk"
+            imageSrc="https://images.pexels.com/photos/4101142/pexels-photo-4101142.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    />
+
+    <!-- Immediate Crisis Resources -->
+    <section id="crisis" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-block p-2 bg-red-50 rounded-lg mb-4 animate-on-scroll">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Immediate Crisis Support</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    If you're experiencing a mental health emergency or having thoughts of suicide,
+                    please use these resources to get immediate help.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-red-50 rounded-xl p-6 border border-red-100 animate-on-scroll">
+                    <h3 class="text-xl font-bold text-red-800 mb-4">Suicide & Crisis Lifeline</h3>
+                    <div class="text-center py-4 bg-white rounded-lg mb-4">
+                        <p class="text-3xl font-bold">988</p>
+                        <p class="text-sm text-neutral-600">Call or Text 24/7</p>
+                    </div>
+                    <p class="text-neutral-700 mb-4">The 988 Suicide & Crisis Lifeline provides free and confidential emotional support to people in suicidal crisis or emotional distress 24 hours a day, 7 days a week.</p>
+                    <a
+                            href="https://988lifeline.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors shadow-sm"
+                    >
+                        Visit Website
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="bg-red-50 rounded-xl p-6 border border-red-100 animate-on-scroll">
+                    <h3 class="text-xl font-bold text-red-800 mb-4">Crisis Text Line</h3>
+                    <div class="text-center py-4 bg-white rounded-lg mb-4">
+                        <p class="text-xl font-bold">Text HOME to 741741</p>
+                        <p class="text-sm text-neutral-600">Free, 24/7 Crisis Counseling</p>
+                    </div>
+                    <p class="text-neutral-700 mb-4">Crisis Text Line serves anyone, in any type of crisis, providing access to free, 24/7 support via text message with a trained Crisis Counselor.</p>
+                    <a
+                            href="https://www.crisistextline.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors shadow-sm"
+                    >
+                        Visit Website
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="bg-red-50 rounded-xl p-6 border border-red-100 animate-on-scroll">
+                    <h3 class="text-xl font-bold text-red-800 mb-4">The Trevor Project</h3>
+                    <div class="text-center py-4 bg-white rounded-lg mb-4">
+                        <p class="text-xl font-bold">866-488-7386</p>
+                        <p class="text-sm text-neutral-600">For LGBTQ+ Youth</p>
+                    </div>
+                    <p class="text-neutral-700 mb-4">The Trevor Project offers crisis intervention and suicide prevention services to lesbian, gay, bisexual, transgender, queer & questioning youth under 25.</p>
+                    <a
+                            href="https://www.thetrevorproject.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors shadow-sm"
+                    >
+                        Visit Website
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-neutral-100 p-6 rounded-xl mt-12 text-center animate-on-scroll">
+                <p class="font-bold text-red-700">If you are in immediate danger of harming yourself or others, please call 911 or go to your nearest emergency room.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Talk to Someone -->
+    <section id="talk" class="py-16 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Talk to Someone</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    Sometimes you just need someone to listen. These resources provide different ways to connect with supportive people.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <ResourceCard
+                        title="Teen Line"
+                        description="A teen-to-teen hotline and community that provides support, resources and hope to youth facing their everyday struggles."
+                        link="https://www.teenline.org/"
+                        tags={["Peer Support", "Hotline"]}
+                        image="https://images.pexels.com/photos/7645919/pexels-photo-7645919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        external={true}
+                />
+
+                <ResourceCard
+                        title="7 Cups"
+                        description="Free emotional support through trained volunteer listeners and online therapy with licensed professionals."
+                        link="https://www.7cups.com/"
+                        tags={["Chat Support", "Online Therapy"]}
+                        image="https://images.pexels.com/photos/3760790/pexels-photo-3760790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        external={true}
+                />
+
+                <ResourceCard
+                        title="School Counselor"
+                        description="Your school counselor is trained to help with mental health concerns and can connect you with additional resources."
+                        link="/resources/school-counselor"
+                        tags={["In-Person", "Professional"]}
+                        image="https://images.pexels.com/photos/1181605/pexels-photo-1181605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Finding Professional Help -->
+    <InfoSection
+            title="Finding Professional Help"
+            description="When you're struggling with your mental health, professional support can make a big difference. Here's how to find the right help for you."
+            imageSrc="https://images.pexels.com/photos/4098224/pexels-photo-4098224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            imageAlt="Therapist office"
+    >
+        <div class="space-y-4 mt-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">1</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Talk to a Trusted Adult</h3>
+                    <p>Start by talking to a parent, guardian, school counselor, or other trusted adult about what you're experiencing. They can help you navigate the process of finding professional help.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">2</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Types of Mental Health Professionals</h3>
+                    <p>Different professionals provide different types of care. These include therapists, counselors, psychologists, and psychiatrists. Each has unique training and approaches to mental health care.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">3</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Finding the Right Fit</h3>
+                    <p>It's important to find a professional you feel comfortable with. It's okay to meet with a few different providers before deciding who to work with long-term.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">4</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">What to Expect</h3>
+                    <p>In your first session, the mental health professional will ask questions to understand what you're experiencing. They'll work with you to develop a treatment plan that might include regular therapy, coping strategies, and sometimes medication.</p>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <a href="/resources/find-therapist" class="inline-block px-5 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors shadow-md">
+                    How to Find a Therapist
+                </a>
+            </div>
+        </div>
+    </InfoSection>
+
+    <!-- Self-Help Resources -->
+    <section class="py-16 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Self-Help Resources</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    While not a substitute for professional help when needed, these tools can help you manage your mental health day-to-day.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <ResourceCard
+                        title="Breathing Exercises"
+                        description="Simple breathing techniques to help manage anxiety and stress in the moment."
+                        link="/resources/breathing-techniques"
+                        tags={["Anxiety", "Stress"]}
+                        image="https://images.pexels.com/photos/3759659/pexels-photo-3759659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <ResourceCard
+                        title="Grounding Techniques"
+                        description="Practical strategies to help you stay present when overwhelmed by difficult emotions."
+                        link="/resources/grounding-techniques"
+                        tags={["Anxiety", "Panic"]}
+                        image="https://images.pexels.com/photos/2258536/pexels-photo-2258536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <ResourceCard
+                        title="Healthy Sleep Habits"
+                        description="Tips for improving your sleep, which can significantly impact your mental health."
+                        link="/resources/sleep-habits"
+                        tags={["Sleep", "Wellbeing"]}
+                        image="https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <ResourceCard
+                        title="Mood Tracking"
+                        description="Learn how tracking your mood can help you identify patterns and triggers."
+                        link="/resources/mood-tracking"
+                        tags={["Self-awareness", "Tool"]}
+                        image="https://images.pexels.com/photos/6287500/pexels-photo-6287500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Support Section -->
+    <InfoSection
+            title="Supporting Someone in Crisis"
+            description="If you're worried about a friend or loved one who might be in crisis, here's how you can help them get the support they need."
+            imageSrc="https://images.pexels.com/photos/7176301/pexels-photo-7176301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            imageAlt="Friends supporting each other"
+            imagePosition="right"
+            bgColor="bg-white"
+    >
+        <div class="space-y-4 mt-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">1</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Take It Seriously</h3>
+                    <p>If someone tells you they're thinking about suicide or self-harm, always take them seriously. Listen without judgment and let them know you care.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">2</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Don't Keep It a Secret</h3>
+                    <p>While respecting privacy is important, safety comes first. Tell a trusted adult about your concerns, even if your friend asked you not to.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">3</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Stay With Them</h3>
+                    <p>If possible, don't leave someone alone if they're in crisis. Help them call a crisis line or reach out to a trusted adult.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">4</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Take Care of Yourself</h3>
+                    <p>Supporting someone in crisis can be emotionally draining. Make sure to talk to someone about your own feelings and take care of your own mental health too.</p>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <a href="/resources/support-friend" class="inline-block px-5 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors shadow-md">
+                    Learn More About Supporting Others
+                </a>
+            </div>
+        </div>
+    </InfoSection>
+
+    <Footer slot="footer" />
+</Layout>
