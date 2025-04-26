@@ -1,0 +1,57 @@
+---
+interface Props {
+  name: string;
+  age: number;
+  title: string;
+  quote: string;
+  image?: string;
+  link?: string;
+}
+
+const { 
+  name, 
+  age, 
+  title, 
+  quote, 
+  image = "https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  link = "/stories" 
+} = Astro.props;
+---
+
+<div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden animate-on-scroll">
+  <div class="md:flex">
+    <div class="md:w-1/3">
+      <img 
+        src={image} 
+        alt={`${name}'s story`}
+        class="w-full h-full object-cover object-center min-h-[200px]"
+      />
+    </div>
+    <div class="p-6 md:w-2/3">
+      <div class="flex items-center mb-4">
+        <div class="mr-4">
+          <div class="w-10 h-10 rounded-full bg-accent-100 flex items-center justify-center">
+            <span class="text-accent-600 font-bold">{name.charAt(0)}</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-medium text-lg text-neutral-800">{name}, {age}</h3>
+          <p class="text-sm text-neutral-500">{title}</p>
+        </div>
+      </div>
+      
+      <blockquote class="italic text-neutral-700 border-l-4 border-primary-300 pl-4 mb-4">
+        "{quote}"
+      </blockquote>
+      
+      {link && (
+        <a href={link} class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors text-sm">
+          Read full story
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      )}
+    </div>
+  </div>
+</div>

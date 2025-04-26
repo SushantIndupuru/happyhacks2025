@@ -1,0 +1,275 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout 
+  title="Mental Health Resources | MindSpace"
+  description="Comprehensive resources for teens facing mental health challenges, including professional support, self-help tools, and educational materials."
+>
+  <Header slot="header" />
+  
+  <HeroBanner 
+    title="Mental Health Resources"
+    subtitle="Explore our collection of resources designed to support you through various mental health challenges."
+    ctaText="Crisis Support"
+    ctaLink="/get-help"
+    secondaryCtaText="Browse Resources"
+    secondaryCtaLink="#resources"
+    imageSrc="https://images.pexels.com/photos/3932585/pexels-photo-3932585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Resource Categories -->
+  <section id="resources" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Find Support & Information</h2>
+        <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+          We've curated resources to help you navigate various mental health challenges. 
+          Whether you're looking for professional support, self-help tools, or educational materials, 
+          you'll find valuable information here.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Crisis Support -->
+        <ResourceCard
+          title="Crisis Support"
+          description="Immediate resources for mental health emergencies, including hotlines, text services, and what to do in a crisis."
+          link="/get-help#crisis"
+          tags={["Urgent", "Immediate Help"]}
+          image="https://images.pexels.com/photos/3178818/pexels-photo-3178818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        />
+        
+        <!-- Finding Professional Help -->
+        <ResourceCard
+          title="Find Professional Help"
+          description="Guides to finding therapists, counselors, and other mental health professionals who work with teens."
+          link="/resources/find-therapist"
+          tags={["Professional", "Therapy"]}
+          image="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        />
+        
+        <!-- Anxiety Resources -->
+        <ResourceCard
+          title="Anxiety Resources"
+          description="Information and tools to understand and manage different types of anxiety that affect teens."
+          link="/resources/anxiety"
+          tags={["Anxiety", "Coping Skills"]}
+          image="https://images.pexels.com/photos/3807742/pexels-photo-3807742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        />
+        
+        <!-- Depression Resources -->
+        <ResourceCard
+          title="Depression Resources"
+          description="Support and information for teens experiencing depression, including symptoms, treatment options, and coping strategies."
+          link="/resources/depression"
+          tags={["Depression", "Mood"]}
+          image="https://images.pexels.com/photos/4099098/pexels-photo-4099098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        />
+        
+        <!-- Stress Management -->
+        <ResourceCard
+          title="Stress Management"
+          description="Techniques and resources to help manage academic, social, and personal stress in healthy ways."
+          link="/resources/stress"
+          tags={["Stress", "Self-care"]}
+          image="https://images.pexels.com/photos/3807731/pexels-photo-3807731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        />
+        
+        <!-- Self-help Tools -->
+        <ResourceCard
+          title="Self-help Tools"
+          description="Practical tools and exercises you can use on your own to support your mental wellbeing day-to-day."
+          link="/resources/self-help"
+          tags={["Self-care", "Tools"]}
+          image="https://images.pexels.com/photos/3759267/pexels-photo-3759267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        />
+        
+        <!-- For Parents & Caregivers -->
+        <ResourceCard
+          title="For Parents & Caregivers"
+          description="Resources to help parents and caregivers support teens with mental health challenges."
+          link="/resources/parents"
+          tags={["Family", "Support"]}
+          image="https://images.pexels.com/photos/7155363/pexels-photo-7155363.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        />
+        
+        <!-- For Educators -->
+        <ResourceCard
+          title="For Educators"
+          description="Information and tools for teachers and school staff to support student mental health."
+          link="/resources/educators"
+          tags={["School", "Support"]}
+          image="https://images.pexels.com/photos/1350615/pexels-photo-1350615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        />
+        
+        <!-- Books & Media -->
+        <ResourceCard
+          title="Recommended Books & Media"
+          description="Books, podcasts, apps, and other media that address teen mental health in thoughtful, helpful ways."
+          link="/resources/media"
+          tags={["Books", "Apps"]}
+          image="https://images.pexels.com/photos/1907785/pexels-photo-1907785.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        />
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Organizations -->
+  <section class="py-16 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Featured Organizations</h2>
+        <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+          These trusted organizations provide valuable support and resources for teen mental health.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ResourceCard
+          title="National Alliance on Mental Illness (NAMI)"
+          description="NAMI provides advocacy, education, support and public awareness for people affected by mental illness."
+          link="https://www.nami.org/Your-Journey/Teens-Young-Adults"
+          tags={["National", "Support"]}
+          image="https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          external={true}
+        />
+        
+        <ResourceCard
+          title="Mental Health America"
+          description="Mental Health America provides resources, tools, and education about mental health conditions and wellness."
+          link="https://mhanational.org/teens"
+          tags={["Education", "Resources"]}
+          image="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          external={true}
+        />
+        
+        <ResourceCard
+          title="The Jed Foundation"
+          description="The Jed Foundation protects emotional health and prevents suicide for teens and young adults."
+          link="https://jedfoundation.org/"
+          tags={["Suicide Prevention", "Support"]}
+          image="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          external={true}
+        />
+      </div>
+    </div>
+  </section>
+  
+  <!-- Common Questions -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Common Questions</h2>
+        <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+          Answers to questions teens frequently ask about mental health.
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto divide-y divide-neutral-200 animate-on-scroll">
+        <div class="py-6">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+              <span class="text-lg font-semibold">How do I know if I need professional help?</span>
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+              Consider seeking professional help if you experience: persistent feelings of sadness or hopelessness; changes in sleep, appetite, or energy; difficulty concentrating or making decisions; thoughts of harming yourself; withdrawal from friends and activities you used to enjoy; or if your emotions are interfering with your daily life. Remember, seeking help is a sign of strength, not weakness.
+            </p>
+          </details>
+        </div>
+        
+        <div class="py-6">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+              <span class="text-lg font-semibold">How do I talk to my parents about mental health?</span>
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+              Choose a calm moment when you have privacy and time. Be direct and specific about what you're experiencing. Use "I" statements like "I've been feeling..." or "I'm struggling with..." If you're nervous, consider writing down your thoughts first. If talking directly seems too difficult, try sharing an article about teen mental health as a conversation starter, or ask another trusted adult for help with the conversation.
+            </p>
+          </details>
+        </div>
+        
+        <div class="py-6">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+              <span class="text-lg font-semibold">Will I have to take medication?</span>
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+              Not necessarily. Many mental health conditions can be treated effectively with therapy alone. Medication might be recommended for some conditions, but it's usually not the first line of treatment for teens. If medication is suggested, it would be part of a comprehensive treatment plan. A psychiatrist will discuss the pros and cons with you and your parents, and together you'll make a decision that feels right. Remember, you have a say in your treatment.
+            </p>
+          </details>
+        </div>
+        
+        <div class="py-6">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+              <span class="text-lg font-semibold">How can I help a friend who is struggling?</span>
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+              Listen without judgment and let them know you care. Encourage them to talk to a trusted adult or mental health professional. Offer to help them find resources or even accompany them to an appointment if they're nervous. Check in regularly, but respect their boundaries. If they mention harming themselves, take it seriously and tell a trusted adult immediately, even if they asked you not to. Remember, you can be supportive, but you're not responsible for "fixing" their problems.
+            </p>
+          </details>
+        </div>
+        
+        <div class="py-6">
+          <details class="group">
+            <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+              <span class="text-lg font-semibold">Will people think I'm "crazy" if I get help?</span>
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+              Getting help for mental health is no different than getting help for physical health - it's a sign of strength and self-awareness. Many people seek mental health support; they just don't always talk about it. While stigma around mental health still exists, it's decreasing as more people openly discuss their experiences. Remember, your health and wellbeing are what matter most. Those who care about you will support you, and anyone who judges you for taking care of yourself isn't someone whose opinion you need to value.
+            </p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CTA
+    title="Need Immediate Support?"
+    subtitle="If you're in crisis or need to talk to someone right now, help is available 24/7."
+    primaryText="Get Help Now"
+    primaryLink="/get-help"
+    secondaryText="Learn About Mental Health"
+    secondaryLink="/learn"
+    bgColor="bg-primary-700"
+  />
+  
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+</style>

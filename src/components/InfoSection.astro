@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imagePosition?: 'left' | 'right';
+  bgColor?: string;
+  textColor?: string;
+}
+
+const { 
+  title, 
+  description, 
+  imageSrc = "https://images.pexels.com/photos/3807738/pexels-photo-3807738.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  imageAlt = "Teens supporting each other", 
+  imagePosition = 'left',
+  bgColor = 'bg-white',
+  textColor = 'text-neutral-800'
+} = Astro.props;
+---
+
+<section class={`py-16 ${bgColor}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${imagePosition === 'right' ? 'md:flex-row-reverse' : ''}`}>
+      <div class="animate-on-scroll">
+        {imageSrc && (
+          <div class="relative">
+            <div class="absolute -inset-4 bg-primary-200/30 rounded-xl -rotate-2"></div>
+            <img 
+              src={imageSrc} 
+              alt={imageAlt}
+              class="relative rounded-lg shadow-md w-full h-auto z-10"
+            />
+          </div>
+        )}
+      </div>
+      
+      <div class={`${textColor} animate-on-scroll`}>
+        <h2 class="text-3xl font-bold mb-6">{title}</h2>
+        {description && (
+          <div class="prose max-w-none">
+            <p class="text-lg">{description}</p>
+          </div>
+        )}
+        <div class="mt-6">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

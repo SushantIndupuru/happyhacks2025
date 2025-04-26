@@ -1,0 +1,88 @@
+---
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "Learn", href: "/learn" },
+  { name: "Stories", href: "/stories" },
+  { name: "Resources", href: "/resources" },
+  { name: "Get Help", href: "/get-help", highlight: true },
+];
+---
+
+<header class="w-full bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      <div class="flex items-center">
+        <a href="/" class="flex items-center">
+          <span class="text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-500 bg-clip-text text-transparent">MindSpace</span>
+        </a>
+      </div>
+      
+      <nav class="hidden md:flex space-x-8 items-center">
+        {navItems.map(item => (
+          <a 
+            href={item.href}
+            class:list={[
+              "font-medium transition-colors duration-200 hover:text-primary-600",
+              item.highlight 
+                ? "px-4 py-2 rounded-full bg-primary-600 text-white hover:bg-primary-700 hover:text-white shadow-md" 
+                : "text-neutral-700"
+            ]}
+          >
+            {item.name}
+          </a>
+        ))}
+      </nav>
+      
+      <button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-md text-neutral-700 hover:text-primary-600 hover:bg-neutral-100 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-neutral-200 animate-fade-in">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {navItems.map(item => (
+        <a 
+          href={item.href}
+          class:list={[
+            "block px-3 py-2 rounded-md font-medium",
+            item.highlight 
+              ? "bg-primary-600 text-white hover:bg-primary-700" 
+              : "text-neutral-700 hover:bg-neutral-100 hover:text-primary-600"
+          ]}
+        >
+          {item.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+  
+  // Header scroll effect
+  const header = document.querySelector('header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.classList.add('shadow-md');
+        header.classList.remove('shadow-sm');
+      } else {
+        header.classList.remove('shadow-md');
+        header.classList.add('shadow-sm');
+      }
+    });
+  }
+</script>
