@@ -9,4 +9,5 @@ export  async function testFunc(message) {
     const data = await response.json();
     const reply = data.reply;
     console.log(reply);
+    return reply;
 }
