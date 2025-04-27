@@ -14,6 +14,7 @@ let conversationHistory = [];
 
 // Chat endpoint
 app.post('/chat', async (req, res) => {
+    console.log("resieved "+ req.body.message)
     const userMessage = req.body.message;
     conversationHistory.push({role: 'user', content: userMessage});
     try {
@@ -26,7 +27,7 @@ app.post('/chat', async (req, res) => {
         const aiMessage = response.data.message.content;
 
         conversationHistory.push({role: 'assistant', content: aiMessage});
-
+        console.log(conversationHistory);
         res.json({reply: aiMessage});
     } catch (error) {
         console.error('Error talking to Ollama:', error.message);
