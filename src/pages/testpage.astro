@@ -1,0 +1,320 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import StoryCard from '../components/StoryCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import InfoSection from '../components/InfoSection.astro';
+import CTA from '../components/CTA.astro';
+import QuizCard from '../components/QuizCard.astro';
+
+// Sample quiz for the homepage
+const anxietyQuiz = {
+    title: "Anxiety Self-Assessment",
+    description: "Take this quick assessment to understand if you might be experiencing symptoms of anxiety.",
+    questions: [
+        {
+            id: "q1",
+            text: "How often do you feel nervous, anxious, or on edge?",
+            options: [
+                { id: "q1a", text: "Not at all" },
+                { id: "q1b", text: "2-3 days a week" },
+                { id: "q1c", text: "4-5 days a week" },
+                { id: "q1d", text: "Nearly every day of the week" }
+            ]
+        },
+        {
+            id: "q2",
+            text: "How often do you have trouble relaxing?",
+            options: [
+                { id: "q1a", text: "Not at all" },
+                { id: "q1b", text: "2-3 days a week" },
+                { id: "q1c", text: "4-5 days a week" },
+                { id: "q1d", text: "Nearly every day of the week" }
+            ]
+        },
+        {
+            id: "q3",
+            text: "How often do you worry too much about different things?",
+            options: [
+                { id: "q1a", text: "Not at all" },
+                { id: "q1b", text: "2-3 days a week" },
+                { id: "q1c", text: "4-5 days a week" },
+                { id: "q1d", text: "Nearly every day of the week" }
+            ]
+        },
+        {
+            id: "q4",
+            text: "How often do you have difficulty concentrating?",
+            options: [
+                { id: "q1a", text: "Not at all" },
+                { id: "q1b", text: "2-3 days a week" },
+                { id: "q1c", text: "4-5 days a week" },
+                { id: "q1d", text: "Nearly every day of the week" }
+            ]
+        }
+    ]
+};
+---
+
+<Layout title="MindSpace | Teen Mental Health Support">
+    <Header slot="header" />
+
+    <HeroBanner
+            title="You're not alone in this journey."
+            subtitle="Discover resources, stories, and support for the mental health challenges teens face in today's world."
+            ctaText="Learn About Mental Health"
+            secondaryCtaText="Find Support"
+    />
+
+    <!-- Key Features Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Supporting Your Mental Health</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    Mental health is just as important as physical health. We provide resources and support
+                    to help you navigate the challenges you might be facing.
+                </p>
+            </div>
+            <button onclick="testFunc('hi there!')">send</button>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <FeatureCard
+                        title="Learn About Mental Health"
+                        description="Understand common challenges like anxiety, depression, and stress through our educational resources."
+                        icon='<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>'
+                        link="/learn"
+                />
+
+                <FeatureCard
+                        title="Connect with Resources"
+                        description="Find professional support through therapists, support groups, and crisis lines that understand teen issues."
+                        icon='<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>'
+                        link="/resources"
+                />
+
+                <FeatureCard
+                        title="Read Personal Stories"
+                        description="You are not alone. Read stories from other teens who have faced similar challenges and found ways to cope."
+                        icon='<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>'
+                        link="/stories"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Self Assessment Section -->
+    <section class="py-16 bg-neutral-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">How Are You Feeling Today?</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    Taking time to check in with yourself is an important part of mental health awareness.
+                    Try this simple self-assessment to reflect on your feelings.
+                </p>
+            </div>
+
+            <QuizCard
+                    title={anxietyQuiz.title}
+                    description={anxietyQuiz.description}
+                    questions={anxietyQuiz.questions}
+            />
+        </div>
+    </section>
+
+    <!-- Common Challenges Section -->
+    <InfoSection
+            title="Challenges Teens Face Today"
+            description="Today's teens navigate a complex world of social media pressure, academic stress, and identity formation - all while their brains are still developing. Understanding these challenges is the first step toward managing them."
+            imageSrc="https://images.pexels.com/photos/3755761/pexels-photo-3755761.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            imageAlt="Teen looking stressed while using smartphone"
+            imagePosition="right"
+    >
+        <div class="space-y-4 mt-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Social Media Pressure</h3>
+                    <p>Constant comparison, cyberbullying, and the pressure to curate a perfect online image can take a toll on mental health.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Academic Stress</h3>
+                    <p>High expectations, competition for college admissions, and balancing school with other responsibilities can create overwhelming stress.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Identity & Belonging</h3>
+                    <p>Figuring out who you are, where you fit in, and navigating complex relationships are fundamental challenges during teenage years.</p>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <a href="/learn" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors">
+                    Learn more about teen mental health
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </InfoSection>
+
+    <!-- Stories Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Stories From Peers</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    Reading about others' experiences can help you feel less alone and provide insights on coping strategies.
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <StoryCard
+                        name="Alex"
+                        age={16}
+                        title="Overcoming Social Anxiety"
+                        quote="I used to panic before school every day, afraid of what others thought of me. Learning mindfulness techniques and gradual exposure to social situations helped me build confidence over time."
+                        image="https://images.pexels.com/photos/2531551/pexels-photo-2531551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <StoryCard
+                        name="Maya"
+                        age={17}
+                        title="Managing Depression During College Applications"
+                        quote="The pressure of college applications triggered my depression. Talking to a therapist and setting realistic expectations helped me get through that difficult period. I learned it's okay to ask for help."
+                        image="https://images.pexels.com/photos/3808060/pexels-photo-3808060.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="/stories" class="inline-block px-5 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-medium transition-colors shadow-md">
+                    Read More Stories
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="py-16 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Helpful Resources</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    Access tools, information, and support services designed specifically for teens facing mental health challenges.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <ResourceCard
+                        title="Crisis Text Line"
+                        description="Text HOME to 741741 to connect with a Crisis Counselor. Free 24/7 support for those in crisis."
+                        link="https://www.crisistextline.org/"
+                        tags={["Crisis Support", "Immediate Help"]}
+                        image="https://images.pexels.com/photos/3823103/pexels-photo-3823103.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        external={true}
+                />
+
+                <ResourceCard
+                        title="Calm Breathing Techniques"
+                        description="Simple breathing exercises that can help reduce anxiety and stress in difficult moments."
+                        link="/resources/breathing-techniques"
+                        tags={["Anxiety", "Coping Skills"]}
+                        image="https://images.pexels.com/photos/3571551/pexels-photo-3571551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <ResourceCard
+                        title="Finding a Therapist"
+                        description="A guide to help teens and parents find the right mental health professional."
+                        link="/resources/find-therapist"
+                        tags={["Professional Help", "Guide"]}
+                        image="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="/resources" class="inline-block px-5 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-medium transition-colors shadow-md">
+                    View All Resources
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">What Others Are Saying</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    Hear from other teens who have found support through our resources.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <TestimonialCard
+                        quote="Finding this site helped me understand I wasn't alone in my struggles with anxiety. The coping tools have made a real difference in my daily life."
+                        author="Jamie, 16"
+                        image="https://images.pexels.com/photos/1642228/pexels-photo-1642228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <TestimonialCard
+                        quote="The resources here helped me talk to my parents about my depression. I'm now seeing a therapist and things are getting better."
+                        author="Tyler, 17"
+                        image="https://images.pexels.com/photos/2827400/pexels-photo-2827400.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+
+                <TestimonialCard
+                        quote="Reading stories from other teens going through similar challenges made me feel less isolated. I learned strategies that actually work for managing stress."
+                        author="Sophia, 15"
+                        image="https://images.pexels.com/photos/7242744/pexels-photo-7242744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                />
+            </div>
+        </div>
+    </section>
+    <script is:inline>
+        async function testFunc(message) {
+
+            console.log("sent "+message);
+            const response = await fetch('http://localhost:4322/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({message})
+            });
+            const data = await response.json();
+            const reply = data.reply;
+            console.log(reply);
+        }
+    </script>
+
+    <!-- Call to Action -->
+    <CTA
+            title="You Don't Have to Face This Alone"
+            subtitle="Whether you're looking for information, support, or immediate help, we're here for you."
+            primaryText="Get Support Now"
+            secondaryText="Explore Resources"
+    />
+
+    <Footer slot="footer" />
+</Layout>
