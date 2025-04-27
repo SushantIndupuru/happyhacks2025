@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import ChatWindow from '../components/ChatWindow';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout
+        title="Chat Support | MindSpace"
+        description="Chat with our supportive AI companion for guidance and emotional support. Remember, this is not a crisis service or replacement for professional help."
+>
+    <Header slot="header" />
+
+    <HeroBanner
+            title="Chat Support"
+            subtitle="A safe space to share your thoughts and feelings with our supportive AI companion. While not a replacement for professional help, MindBot can offer guidance and resources."
+            ctaText="Start Chat"
+            ctaLink="#chat"
+            secondaryCtaText="Get Professional Help"
+            secondaryCtaLink="/get-help"
+            imageSrc="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    />
+
+    <section id="chat" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Chat with MindBot</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    MindBot is here to listen and provide support. While it can offer guidance and resources,
+                    remember it's not a replacement for professional mental health care.
+                </p>
+            </div>
+
+            <div class="mb-8 p-4 bg-neutral-100 rounded-lg text-sm text-neutral-700">
+                <h3 class="font-semibold mb-2">Before you start chatting:</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>This is not a crisis service - if you need immediate help, call 988</li>
+                    <li>MindBot is an AI assistant, not a mental health professional</li>
+                    <li>Your privacy is important - chats are not stored or shared</li>
+                    <li>For serious concerns, always seek professional help</li>
+                </ul>
+            </div>
+
+            <ChatWindow client:load />
+
+            <div class="mt-8 text-center">
+                <p class="text-neutral-600">
+                    Need to talk to a real person? Visit our{' '}
+                    <a href="/get-help" class="text-primary-600 hover:underline">support resources</a>
+                    {' '}to find professional help.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <CTA
+            title="Need Professional Support?"
+            subtitle="While chatting can help, sometimes you need more support. Our resources can connect you with mental health professionals."
+            primaryText="Find Help Now"
+            primaryLink="/get-help"
+            secondaryText="Browse Resources"
+            secondaryLink="/resources"
+    />
+
+    <Footer slot="footer" />
+</Layout>
