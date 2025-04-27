@@ -2,24 +2,19 @@
 const currentYear = new Date().getFullYear();
 
 const resources = [
-  { name: "Crisis Hotline", href: "/resources#crisis" },
+  { name: "Crisis Hotline", href: "/resources" },
   { name: "Find a Therapist", href: "/resources#therapists" },
-  { name: "Support Groups", href: "/resources#groups" },
-  { name: "Apps & Tools", href: "/resources#tools" },
+  { name: "Self help", href: "/resources#selfhelp" },
 ];
 
 const sections = [
-  { name: "About Us", href: "/about" },
-  { name: "Mental Health Topics", href: "/learn" },
-  { name: "Personal Stories", href: "/stories" },
-  { name: "For Parents", href: "/parents" },
-  { name: "For Educators", href: "/educators" },
+  //{ name: "Mental Health Topics", href: "/learn" },
 ];
 
 const legal = [
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Terms of Use", href: "/terms" },
-  { name: "Disclaimer", href: "/disclaimer" },
+  //{ name: "Privacy Policy", href: "/privacy" },
+  //{ name: "Terms of Use", href: "/terms" },
+  //{ name: "Disclaimer", href: "/disclaimer" },
 ];
 ---
 
@@ -64,23 +59,28 @@ const legal = [
             </li>
           ))}
         </ul>
+        <div class="mt-6">
+          <a href="/get-help" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-medium text-sm transition-colors shadow-md">
+            Get Help Now
+          </a>
+        </div>
       </div>
       
-      <div>
-        <h3 class="text-white text-lg font-semibold mb-4">Sections</h3>
-        <ul class="space-y-2">
-          {sections.map(item => (
-            <li>
-              <a href={item.href} class="text-sm hover:text-white transition-colors">
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <!--<div>-->
+      <!--  <h3 class="text-white text-lg font-semibold mb-4">Sections</h3>-->
+      <!--  <ul class="space-y-2">-->
+      <!--    {sections.map(item => (-->
+      <!--      <li>-->
+      <!--        <a href={item.href} class="text-sm hover:text-white transition-colors">-->
+      <!--          {item.name}-->
+      <!--        </a>-->
+      <!--      </li>-->
+      <!--    ))}-->
+      <!--  </ul>-->
+      <!--</div>-->
       
       <div>
-        <h3 class="text-white text-lg font-semibold mb-4">Legal</h3>
+        <h3 class="text-white text-lg font-semibold mb-4"></h3>
         <ul class="space-y-2">
           {legal.map(item => (
             <li>
@@ -90,11 +90,7 @@ const legal = [
             </li>
           ))}
         </ul>
-        <div class="mt-6">
-          <a href="/get-help" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-medium text-sm transition-colors shadow-md">
-            Get Help Now
-          </a>
-        </div>
+
       </div>
     </div>
     
