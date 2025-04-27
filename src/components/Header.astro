@@ -16,23 +16,24 @@ const navItems = [
           <span class="text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-500 bg-clip-text text-transparent">MindSpace</span>
         </a>
       </div>
-      
+
       <nav class="hidden md:flex space-x-8 items-center">
         {navItems.map(item => (
-          <a 
-            href={item.href}
-            class:list={[
-              "font-medium transition-colors duration-200 hover:text-primary-600",
-              item.highlight 
-                ? "px-4 py-2 rounded-full bg-primary-600 text-white hover:bg-primary-700 hover:text-white shadow-md" 
-                : "text-neutral-700"
-            ]}
-          >
-            {item.name}
-          </a>
+            <a
+                href={item.href}
+                class={`font-medium transition-colors duration-200 ${
+                    item.highlight
+                        ? 'px-4 py-2 rounded-full bg-primary-600 text-white hover:bg-primary-700 hover:text-white shadow-md'
+                        : item.name === "AI INTERFACE HERE"
+                            ? 'px-4 py-2 rounded-full border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white transition'
+                            : 'text-neutral-700 hover:text-primary-600'
+                }`}
+            >
+              {item.name}
+            </a>
         ))}
       </nav>
-      
+
       <button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 rounded-md text-neutral-700 hover:text-primary-600 hover:bg-neutral-100 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -40,22 +41,23 @@ const navItems = [
       </button>
     </div>
   </div>
-  
+
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-neutral-200 animate-fade-in">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       {navItems.map(item => (
-        <a 
-          href={item.href}
-          class:list={[
-            "block px-3 py-2 rounded-md font-medium",
-            item.highlight 
-              ? "bg-primary-600 text-white hover:bg-primary-700" 
-              : "text-neutral-700 hover:bg-neutral-100 hover:text-primary-600"
-          ]}
-        >
-          {item.name}
-        </a>
+          <a
+              href={item.href}
+              class={`block px-4 py-2 rounded-md font-medium ${
+                  item.highlight
+                      ? 'bg-primary-600 text-white hover:bg-primary-700'
+                      : item.name === "AI INTERFACE HERE"
+                          ? 'rounded-full border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white transition'
+                          : 'text-neutral-700 hover:bg-neutral-100 hover:text-primary-600'
+              }`}
+          >
+            {item.name}
+          </a>
       ))}
     </div>
   </div>
@@ -65,14 +67,14 @@ const navItems = [
   // Mobile menu toggle
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
-  
+
   if (mobileMenuButton && mobileMenu) {
     mobileMenuButton.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
   }
-  
-  // Header scroll effect
+
+  // Header scroll shadow effect
   const header = document.querySelector('header');
   if (header) {
     window.addEventListener('scroll', () => {
