@@ -19,7 +19,7 @@ app.post('/chat', async (req, res) => {
     conversationHistory.push({role: 'user', content: userMessage});
     try {
         const response = await axios.post('http://127.0.0.1:11434/api/chat', {
-            model: 'llama3.2', // change this to your Ollama model
+            model: 'therapist', // change this to your Ollama model
             messages: conversationHistory,
             stream: false
         });
