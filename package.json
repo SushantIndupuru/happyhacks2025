@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "start-server": "node server.js",
-    "dev-all": "concurrently \"npm run start-server\" \"npm run dev\""
+    "dev-all": "concurrently \"npm run start-server\" \"npm run dev\"",
+    "preview-all": "concurrently \"npm run start-server\" \"npm run preview\""
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
