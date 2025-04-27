@@ -7,25 +7,19 @@ import ResourceCard from '../components/ResourceCard.astro';
 import InfoSection from '../components/InfoSection.astro';
 ---
 
-<Layout
-        title="Get Help Now | MindSpace"
-        description="Immediate resources and support for teens experiencing mental health crises or needing professional help."
->
+
     <Header slot="header"/>
 
     <HeroBanner
             title="Need Support? You're Never Alone."
             subtitle="Whether you're currently in crisis or just need someone to talk to, help is always available. Your mental health matters."
-            ctaText="Immediate Crisis"
+            ctaText="Immediate Response"
             ctaLink="#crisis"
-            secondaryCtaText="Resources"
+            secondaryCtaText="Support"
             secondaryCtaLink="#talk"
             imageSrc="https://www.healthcareradius.in/cloud/2021/11/15/Mental-Health-1.jpg"
     />
-    <div class="bg-neutral-100 p-6 rounded-xl mt-12 text-center animate-on-scroll">
-        <p class="font-bold text-red-700">If you are in immediate danger of harming yourself or others, please
-            call 911 or go to your nearest emergency room.</p>
-    </div>
+
     <!-- Immediate Crisis Resources -->
     <section id="crisis" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -185,4 +179,3 @@ import InfoSection from '../components/InfoSection.astro';
 
 
     <Footer slot="footer"/>
-</Layout>
