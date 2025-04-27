@@ -1,0 +1,276 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import InfoSection from '../components/InfoSection.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout
+        title="Learn About Mental Health | MindSpace"
+        description="Educational resources about common mental health challenges teens face, including anxiety, depression, stress, and more."
+>
+    <Header slot="header" />
+
+    <HeroBanner
+            title="Understanding Teen Mental Health"
+            subtitle="Learn about common mental health challenges, recognize the signs, and discover ways to support yourself and others."
+            ctaText="Explore Topics"
+            secondaryCtaText="Get Support"
+            secondaryCtaLink="/get-help"
+            imageSrc="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    />
+
+    <!-- Mental Health Topics -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Common Mental Health Challenges</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    Understanding what you're experiencing is the first step toward managing it.
+                    Learn about common mental health challenges facing teens today.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <FeatureCard
+                        title="Anxiety"
+                        description="Learn about different types of anxiety, common symptoms, and techniques to manage anxious thoughts and feelings."
+                        icon='<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>'
+                        link="/learn/anxiety"
+                />
+
+                <FeatureCard
+                        title="Depression"
+                        description="Understand the signs of depression, how it affects teens uniquely, and evidence-based approaches for treatment and support."
+                        icon='<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>'
+                        link="/learn/depression"
+                />
+
+                <FeatureCard
+                        title="Stress Management"
+                        description="Discover healthy ways to cope with academic, social, and personal stressors that are common during the teenage years."
+                        icon='<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>'
+                        link="/learn/stress"
+                />
+
+                <FeatureCard
+                        title="Social Media & Mental Health"
+                        description="Explore the complex relationship between social media use and mental wellbeing, including strategies for healthy digital habits."
+                        icon='<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>'
+                        link="/learn/social-media"
+                />
+
+                <FeatureCard
+                        title="Identity & Self-Esteem"
+                        description="Navigate the challenges of forming your identity and building healthy self-esteem during the formative teenage years."
+                        icon='<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>'
+                        link="/learn/identity"
+                />
+
+                <FeatureCard
+                        title="Bullying & Cyberbullying"
+                        description="Learn about the impact of bullying, how to recognize it, and effective strategies for dealing with both in-person and online bullying."
+                        icon='<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>'
+                        link="/learn/bullying"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Understanding Mental Health -->
+    <InfoSection
+            title="What is Mental Health?"
+            description="Mental health includes our emotional, psychological, and social well-being. It affects how we think, feel, and act, and helps determine how we handle stress, relate to others, and make choices. Mental health is important at every stage of life, including adolescence."
+            imageSrc="https://images.pexels.com/photos/2646841/pexels-photo-2646841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            imageAlt="Teens sitting together outdoors"
+            bgColor="bg-neutral-50"
+    >
+        <div class="space-y-4 mt-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Mental Health vs. Mental Illness</h3>
+                    <p>Mental health exists on a spectrum. Everyone has mental health, just like physical health, and it can range from good to poor. Mental illness refers to diagnosed conditions that affect thinking, feeling, behavior, or mood.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">The Teen Brain</h3>
+                    <p>The teenage brain is still developing, particularly the prefrontal cortex (responsible for decision-making and impulse control). This development, combined with hormonal changes, can influence mood, behavior, and mental health.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Warning Signs</h3>
+                    <p>Changes in sleep, appetite, energy, interests, academic performance, or social behaviors can be warning signs of potential mental health challenges that deserve attention.</p>
+                </div>
+            </div>
+        </div>
+    </InfoSection>
+
+    <!-- Myths vs. Facts -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-800 mb-4 animate-on-scroll">Mental Health: Myths vs. Facts</h2>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-600 animate-on-scroll">
+                    There are many misconceptions about mental health. Let's separate fact from fiction.
+                </p>
+            </div>
+
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div class="bg-white shadow-md rounded-xl overflow-hidden animate-on-scroll">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="bg-neutral-800 text-white p-6">
+                            <div class="flex items-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <h3 class="ml-2 text-xl font-semibold">MYTH</h3>
+                            </div>
+                            <p>"Mental health problems are a sign of weakness."</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <h3 class="ml-2 text-xl font-semibold text-neutral-800">FACT</h3>
+                            </div>
+                            <p class="text-neutral-700">Mental health challenges are health conditions, not character flaws. They have many causes including biological factors, life experiences, and family history.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow-md rounded-xl overflow-hidden animate-on-scroll">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="bg-neutral-800 text-white p-6">
+                            <div class="flex items-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <h3 class="ml-2 text-xl font-semibold">MYTH</h3>
+                            </div>
+                            <p>"Teens just go through mood swings – they don't really experience depression or anxiety."</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <h3 class="ml-2 text-xl font-semibold text-neutral-800">FACT</h3>
+                            </div>
+                            <p class="text-neutral-700">While mood fluctuations are normal in adolescence, teens can and do experience clinical mental health conditions that require proper support and treatment.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow-md rounded-xl overflow-hidden animate-on-scroll">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="bg-neutral-800 text-white p-6">
+                            <div class="flex items-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <h3 class="ml-2 text-xl font-semibold">MYTH</h3>
+                            </div>
+                            <p>"Talking about mental health problems just makes them worse."</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <h3 class="ml-2 text-xl font-semibold text-neutral-800">FACT</h3>
+                            </div>
+                            <p class="text-neutral-700">Talking about mental health challenges with trusted people can actually reduce stigma, provide relief, and is often the first step toward getting help and feeling better.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Help a Friend -->
+    <InfoSection
+            title="How to Support a Friend"
+            description="If you notice a friend struggling with their mental health, there are ways you can help. Remember, your support can make a difference, but professional help might also be needed."
+            imageSrc="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            imageAlt="Teens supporting each other"
+            imagePosition="right"
+            bgColor="bg-neutral-50"
+    >
+        <div class="space-y-4 mt-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">1</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Listen Without Judgment</h3>
+                    <p>Sometimes the most helpful thing you can do is simply listen. Give your friend your full attention and avoid interrupting or judging.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">2</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Express Concern Kindly</h3>
+                    <p>Use "I" statements like "I've noticed you seem down lately" rather than accusatory statements that might make your friend defensive.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">3</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Encourage Professional Help</h3>
+                    <p>Suggest talking to a trusted adult, school counselor, or mental health professional. Offer to help them find resources or even accompany them to an appointment.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mt-1">
+                    <span class="font-bold text-sm">4</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium">Know When It's an Emergency</h3>
+                    <p>If your friend talks about hurting themselves or others, take it seriously and get help immediately. Contact a trusted adult, call a crisis line, or in emergencies, call 911.</p>
+                </div>
+            </div>
+        </div>
+    </InfoSection>
+
+    <!-- Call to Action -->
+    <CTA
+            title="Continue Learning"
+            subtitle="Explore our comprehensive resources on specific mental health topics."
+            primaryText="Browse Resources"
+            primaryLink="/resources"
+            secondaryText="Read Personal Stories"
+            secondaryLink="/stories"
+    />
+
+    <Footer slot="footer" />
+</Layout>
