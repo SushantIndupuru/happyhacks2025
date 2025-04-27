@@ -1,4 +1,4 @@
-export  async function testFunc(message) {
+export  async function getRequest(message) {
 
     console.log("sent "+message);
     const response = await fetch('http://localhost:4322/chat', {

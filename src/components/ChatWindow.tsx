@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ChatMessage from './ChatMessage';
-import {testFunc} from "../../test.js";
+import {getRequest} from "../../getRequest.js";
 interface Message {
     text: string;
     isBot: boolean;
@@ -24,7 +24,7 @@ const ChatWindow: React.FC = () => {
     };
 
     useEffect(() => {
-        scrollToBottom();
+        //scrollToBottom();
     }, [messages]);
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -84,7 +84,7 @@ const ChatWindow: React.FC = () => {
         const reply = data.reply;
         console.log(reply);
         return reply;*/
-        return await testFunc(userInput);
+        return await getRequest(userInput);
     };
 
     return (
