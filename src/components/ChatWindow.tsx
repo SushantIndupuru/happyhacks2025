@@ -42,7 +42,7 @@ const ChatWindow: React.FC = () => {
         setIsTyping(true);
 
         // Simulate bot response
-        setTimeout(async () => {
+        /*setTimeout(async () => {
             const botResponse = {
                 text: await getBotResponse(input),
                 isBot: true,
@@ -50,7 +50,14 @@ const ChatWindow: React.FC = () => {
             };
             setMessages(prev => [...prev, botResponse]);
             setIsTyping(false);
-        }, 1000);
+        }, 1);*/
+        const botResponse = {
+            text: await getBotResponse(input),
+            isBot: true,
+            timestamp: new Date().toLocaleTimeString()
+        };
+        setMessages(prev => [...prev, botResponse]);
+        setIsTyping(false);
     };
 
     const getBotResponse = async (userInput: string): Promise<string> => {
@@ -106,7 +113,7 @@ const ChatWindow: React.FC = () => {
                 {isTyping && (
                     <div className="flex items-center text-neutral-500 text-sm">
                         <div className="bg-white rounded-full px-4 py-2">
-                            MindBot is typing...
+                            MindBot is thinking...
                         </div>
                     </div>
                 )}
@@ -121,6 +128,7 @@ const ChatWindow: React.FC = () => {
                         onChange={(e) => setInput(e.target.value)}
                         placeholder="Type your message..."
                         className="flex-1 px-4 py-2 rounded-full border border-neutral-300 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
+                        disabled={isTyping}
                     />
                     <button
                         type="submit"

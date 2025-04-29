@@ -7,22 +7,23 @@
     "dev": "astro dev --host",
     "dev-local": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro preview --host",
     "astro": "astro",
     "start-server": "node server.js",
     "dev-all": "concurrently \"npm run start-server\" \"npm run dev\"",
     "preview-all": "concurrently \"npm run start-server\" \"npm run preview\""
   },
   "dependencies": {
+    "@astrojs/react": "^3.0.9",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^5.2.5",
     "axios": "^1.9.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "tailwindcss": "^3.4.1",
-    "@astrojs/react": "^3.0.9",
+    "marked": "^15.0.11",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
