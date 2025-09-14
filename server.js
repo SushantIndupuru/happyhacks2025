@@ -30,6 +30,9 @@ function getLocalIP() {
 
 console.log(getLocalIP());
 
+conversationHistory.push({role: 'assistant', content: "Hi! I'm MindBot, a supportive companion here to chat with you. While I can offer a listening ear and general guidance, remember I'm not a replacement for professional help. How are you feeling today?"});
+
+
 // Chat endpoint
 app.post('/chat', async (req, res) => {
     console.log("received "+ req.body.message)
